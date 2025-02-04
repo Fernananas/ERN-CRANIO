@@ -1,10 +1,19 @@
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : 'genomicVariant;;;;;;;;;;;;;;;;;;Gene anomaly;ALL PATIENTS: Contains all information
+    that was filled in for genomic variants. HGVS'
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : 'visits_cfm;;;;;;;;;;;;;;;;;;CFM workstream;CFM WORKSTREAM:  Contains all information
+    that was filled in for patients within the CFM workstream'
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : 'visits_hearingloss;;;;;;;;;;;;;;;;;;ENT Workstream;ENT WORKSTREAM:  Contains
+    all information that was filled in for patients within the ENT workstream'
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : Charts;;;;;;;;;;;;;;;;http://edamontology.org/topic_0092;;;The definition of charts
+    and the data points
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : 'subject;;;;;;;;;;;;;;;;;;Subject;ALL PATIENTS:  Contains all information that
     was filled in for patients within the CDE section of the registry and the link
     to the workstream-specific visits'
-- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : 'visits_cleft;;;;;;;;;;;;;;;;;;Cleft workstream visits;Cleft WORKSTREAM:  Contains
-    all information that was filled in for patients within the Cleft workstream'
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : 'visits_synostosis;;;;;;;;;;;;;;;;;;Craniosynostosis workstream visits;CRANIOSYNOSTOSIS
     WORKSTREAM:  Contains all information that was filled in for patients within the
@@ -13,23 +22,14 @@
   : 'chromosomalVariant;;;;;;;;;;;;;;;;;;Chromosomal anomaly;ALL PATIENTS: Contains
     all information that was filled in for chromosomal variants. ISCN'
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : 'visits_cfm;;;;;;;;;;;;;;;;;;CFM workstream;CFM WORKSTREAM:  Contains all information
-    that was filled in for patients within the CFM workstream'
-- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : 'genomicVariant;;;;;;;;;;;;;;;;;;Gene anomaly;ALL PATIENTS: Contains all information
-    that was filled in for genomic variants. HGVS'
-- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : 'visits_hearingloss;;;;;;;;;;;;;;;;;;ENT Workstream;ENT WORKSTREAM:  Contains
-    all information that was filled in for patients within the ENT workstream'
-- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : Dashboard pages;;;;;;;;;;;;;;;;;;;The user interfaces in the vue application and
-    the charts are displayed in each view
-- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : Charts;;;;;;;;;;;;;;;;http://edamontology.org/topic_0092;;;The definition of charts
-    and the data points
+  : 'visits_cleft;;;;;;;;;;;;;;;;;;Cleft workstream visits;Cleft WORKSTREAM:  Contains
+    all information that was filled in for patients within the Cleft workstream'
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : Chart data;;;;;;;;;;;;;;;;http://semanticscience.org/resource/SIO_000546;;;Data
     that is prepared to be used in a chart
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : Dashboard pages;;;;;;;;;;;;;;;;;;;The user interfaces in the vue application and
+    the charts are displayed in each view
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : Chart data;;;data point id;;1;true;;;;;;;;;;http://semanticscience.org/resource/SIO_000465
   null:
@@ -372,7 +372,13 @@
   : genomicVariant;;;acmg;ontology;;false;cranioOntology;acmg;;;${label};;;;;;;ACMG
     classification;
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
-  : genomicVariant;;;inheritance;ontology;;false;cranioOntology;inheritance;;;${label};;;;;;;Inheritance;
+  : genomicVariant;;;segretationBool;bool;;false;;;;;;;;;;;;Is segretation analysis
+    performed?;
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : genomicVariant;;;inheritance;ontology;;false;cranioOntology;inheritance;;;${label};;;segretationBool===true;;;;Inheritance;If
+    Yes
+  null:
+  - ' indicate inheritance pattern'
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : genomicVariant;;;autoId;auto_id;1;true;;;;;;;;;${mg_autoid};;;auto-id;
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
@@ -417,6 +423,12 @@
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : subject;;;agediagnosisdate;date;;false;;;;;;;;"agediagnosis?.name=== ""postnatal""";;;;Please
     enter date;
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : subject;;;ageHearingLoss;date;;false;;;;;;;;"diseasegroup?.name=== ""entDisorders""";;;;Age
+    (date) at Hearing Loss Diagnosis;
+- ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
+  : subject;;;ageGeneticDiagnosis;date;;false;;;;;;;;"diseasegroup?.name=== ""entDisorders""";;;;Age
+    (date) at Genetic Diagnosis;
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
   : subject;;;eu6;heading;;false;;;;;;;;;;;;6. Diagnosis;
 - ? tableName;tableExtends;tableType;columnName;columnType;key;required;refSchema;refTable;refLink;refBack;refLabel;defaultValue;validation;visible;computed;semantics;profiles;label;description
